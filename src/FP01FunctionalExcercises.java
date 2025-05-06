@@ -17,7 +17,26 @@ public class FP01FunctionalExcercises {
         //printSpringCourses(courses);
 
         // 4. Print courses whose name has at least 4 letters
-        printCoursesWith4letters(courses);
+        //printCoursesWith4letters(courses);
+        
+        // 5. Print the cubres of odd numbers
+        //printCubeOfOddNumbers(numbers);
+
+        // 6. Print the number of characters in each course name
+        printNumberOfCharactersInEachCourseName(courses);
+    }
+
+    private static void printNumberOfCharactersInEachCourseName(List<String> courses) {
+        courses.stream()
+            .map(course -> course + ": " + course.length())
+            .forEach(System.out::println);
+    }
+
+    private static void printCubeOfOddNumbers(List<Integer> numbers) {
+        numbers.stream()
+            .filter(number -> number % 2 != 0)
+            .map(number -> number * number * number)
+            .forEach(System.out::println);
     }
 
     private static void printCoursesWith4letters(List<String> courses) {
