@@ -6,7 +6,7 @@ public class FP02Functional {
 
         // printAllNumbersInListFunctional(List.of(12,9,13,4,12,15));
 
-        List<Integer> numbers = List.of(12,9,13,4,6,2,4,12,15);
+        List<Integer> numbers = List.of(12,9,13,4,6,2,4,12,15 );
         printEvenNumbersInListFunctional(numbers);
     }
 
@@ -25,8 +25,8 @@ public class FP02Functional {
 
     private static void printEvenNumbersInListFunctional(List<Integer> numbers) {
         numbers.stream()
-                 // Filter - Only allow even numbers
-                .filter(FP02Functional::isEven)
+                //.filter(FP02Functional::isEven) // Filter - Only allow even numbers
+                .filter(number -> number % 2 == 0) // Using Lambda Expresion
                 .forEach(System.out::println);
     }
 
