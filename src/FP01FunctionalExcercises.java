@@ -1,3 +1,4 @@
+import java.util.Comparator;
 import java.util.List;
 
 public class FP01FunctionalExcercises {
@@ -23,7 +24,46 @@ public class FP01FunctionalExcercises {
         //printCubeOfOddNumbers(numbers);
 
         // 6. Print the number of characters in each course name
-        printNumberOfCharactersInEachCourseName(courses);
+        //printNumberOfCharactersInEachCourseName(courses);
+
+        // Convert courses to uppercase
+        //printUpperCaseCourses(courses);
+
+        // Summ all numbers of the list
+        //printTotalSumOfNumbers(numbers);
+
+        // Count elements which contains letter A
+        //countElementsWhichContainsLetterA(courses);
+
+        // Get lenght of each word
+        printlenghtOfEachCourse(courses);
+    }
+
+    private static void printlenghtOfEachCourse(List<String> courses) {
+        courses.stream()
+            .sorted(Comparator.comparingInt(String::length))
+            .map(course -> course + ": " + course.length())
+            .forEach(System.out::println);
+    }
+
+    private static void countElementsWhichContainsLetterA(List<String> courses) {
+        long suma = courses.stream()
+            .filter(course -> course.toLowerCase().contains("a"))
+            .count();
+        System.out.println(suma);
+    }
+
+    private static void printTotalSumOfNumbers(List<Integer> numbers) {
+        int suma = numbers.stream()
+                        .reduce(0, (acumulador, elemento) -> acumulador + elemento);
+        System.out.println(suma);
+                        
+    }
+
+    private static void printUpperCaseCourses(List<String> courses) {
+        courses.stream()
+            .map(course -> course.toUpperCase())
+            .forEach(System.out::println);
     }
 
     private static void printNumberOfCharactersInEachCourseName(List<String> courses) {
